@@ -32,7 +32,8 @@ ser.write(bytes(serialnumber + '\n', 'utf-8'))
 while True:
     raw = ser.readline() 
     if len(bytearray(raw)) == 0:
-        continue
+        print("ERROR: timeout reading serial data from timetosser, exiting.")
+        exit()
     line = raw.decode('utf-8')[:-1]
     print(line)
     if line == finishline:

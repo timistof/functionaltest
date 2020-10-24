@@ -14,7 +14,6 @@ class MidiInputHandler(object):
 
     def __call__(self, event, data=None):
         message, deltatime = event
-        print("Received message")
         self.received_messages.append(message)
 
 def midi_test():
@@ -45,8 +44,11 @@ def midi_test():
     
     callback = MidiInputHandler(port_name)
     midiin.set_callback(callback)
-
     midiout.open_port(available_ports.index(device_name))
+    
+    #clear out any midi messages still in the rx-buffer before sending
+    callback.received_messages = []
+    
     with midiout:
         for m in messages:
             midiout.send_message(m)
@@ -61,6 +63,10 @@ def midi_test():
         print("Midi test PASS")
     else:
         print("Midi test FAIL")
+        print("Number of sent messages: " + str(len(messages)) + ", number of received messages: " + str(len(callback.received_messages)))
+        print("Sent messages:")
+        print(messages)
+        print("Received messages:")
         print(callback.received_messages)
         
 #midi_test()
