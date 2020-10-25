@@ -9,7 +9,7 @@ def record(file):
     os.system('rec -c 2 ' + file + ' trim 1 1 >/dev/null 2>&1')
     
 def play(file):
-    os.system('play ' + file + ' >/dev/null 2>&1 gain -2') # -2dB to avoid clipping
+    os.system('play ' + file + ' >/dev/null 2>&1 gain -2.5') # -2dB to avoid clipping
 
 def playrecord(playfile, recordfile):
     if __name__ == 'audiofunctions':

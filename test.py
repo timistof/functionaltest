@@ -2,6 +2,7 @@ import serial
 import testhid
 import testmidi
 import testaudio
+import create_reference_spectrogram
 import time
 import sys
 
@@ -42,6 +43,9 @@ while True:
 #give timetosser some time to switch to HID USB device mode and start
 #midi & audio passthrough
 time.sleep(1)
+
+#create reference spectrogram if not available
+create_reference_spectrogram.create_reference_spectrogram()
 
 #perform the rest of the tests
 testhid.hid_test()
