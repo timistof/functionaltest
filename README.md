@@ -29,9 +29,9 @@ I had some issues with the HifiBerry hat, could not get input audio to work unti
 
 # running
 
-First, create a reference spectrogram:
-- python3 create_reference_spectrogram.py
-This will overwrite reference.png and reference.wav.
-
 Program serial number and run tests with:
 - python3 test.py SERIALNUMBER
+
+The first time the tests are run, a reference recording (reference.wav) and spectrogram (reference.png) will be created.
+Delete these files to force creation of new references.
+
