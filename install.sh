@@ -5,6 +5,7 @@ sudo apt-get --assume-yes install openocd
 sudo apt-get --assume-yes install sox
 
 #midi
+sudp pip3 install pyusb
 sudo apt --assume-yes install libjack0 
 sudo pip3 install python-rtmidi
 
