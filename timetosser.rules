@@ -1,1 +1,3 @@
 KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev"
+#SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="fc02", ATTRS{idProduct}=="0101", GROUP="plugdev", MODE="0777"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="fc02",ATTRS{idProduct}=="0101",  GROUP="plugdev", MODE="0666"

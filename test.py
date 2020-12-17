@@ -27,6 +27,7 @@ baudrate = 115200
 ser = serial.Serial(device, baudrate, timeout=10)
 
 #kickstart internal tests by entering serial number
+print ("qr code ", serialnumber)
 ser.write(bytes(serialnumber + '\n', 'utf-8'))
     
 #print out received serial data from test firmware
@@ -36,7 +37,7 @@ while True:
         print("ERROR: timeout reading serial data from timetosser, exiting.")
         exit()
     line = raw.decode('utf-8')[:-1]
-    print(line)
+    print("uart read",line)
     if line == finishline:
         break
         
