@@ -46,7 +46,8 @@ def hid_test():
                 print("Received:")
                 print(inpacket)
                 result = False
-    except:
+    except Exception as e:
+        print(e)
         print("HID Test failed, could not open device. FAIL")
         result = False
     
@@ -104,7 +105,7 @@ def printDevice(vid, pid):
         
 #functional test: during test-firmware, timetosser enumerates as full-speed (12MBit) device
 #it should echo back what you send to it, test if this works
-#hid_test(vid, pid)
+#hid_test()
 
 #when timetosser is not in testmode: read keystate and send back led data
 #hid_application(vid, pid)
