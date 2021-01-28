@@ -1,3 +1,6 @@
+#zip (for zipping test results)
+sudo apt-get -assume-yes install zip
+
 #openocd
 sudo apt-get --assume-yes install openocd
 

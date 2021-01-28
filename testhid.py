@@ -53,6 +53,7 @@ def hid_test():
     
     if result == True:
         print("HID Test PASS")
+    return result
 
 #test HID functionality of timetosser in usb-application mode (not in test-mode)
 #read key state and send led state

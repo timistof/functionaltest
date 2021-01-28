@@ -28,7 +28,7 @@ def midi_test():
         print(available_ports)
         print()
         print('please edit \"device_name\" variable to a device that is present.')
-        exit()
+        exit(1)
         
     messages = []
     for x in range(36, 84): #spanning from two octaves below middle c to two octaves above
@@ -39,7 +39,7 @@ def midi_test():
         midiin, port_name = open_midiinput(device_name)
     except (EOFError):
         print('Could not open midi input \"' + device_name + '\"')
-        exit()
+        exit(1)
         
     
     callback = MidiInputHandler(port_name)
@@ -61,6 +61,7 @@ def midi_test():
         
     if messages == callback.received_messages:
         print("Midi test PASS")
+        return True
     else:
         print("Midi test FAIL")
         print("Number of sent messages: " + str(len(messages)) + ", number of received messages: " + str(len(callback.received_messages)))
@@ -68,5 +69,6 @@ def midi_test():
         print(messages)
         print("Received messages:")
         print(callback.received_messages)
+        return False
         
 #midi_test()
