@@ -70,7 +70,7 @@ def midi_test():
     else:
         if len(callback.received_messages) > len(messages):
             result = is_slice_in_list(message, callback.received_messages)
-        else
+        else:
             result = False
 
     if result = True:
