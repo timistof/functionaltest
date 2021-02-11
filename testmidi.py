@@ -73,7 +73,7 @@ def midi_test():
         else:
             result = False
 
-    if result = True:
+    if result == True:
         print("Midi test PASS")
         return True
 
