@@ -92,7 +92,7 @@ fi
 
 echo "Are all leds white? press enter to continue or scan a QR code to start over"
 read -p "" response
-if [[ -z "$response" ]]; then
+if [[ ! -z "$response" ]]; then
     continue
 fi
 
