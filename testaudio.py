@@ -13,7 +13,7 @@ def audio_test(serial_number):
     audiofunctions.create_spectrogram(recording, spectrogram)
     
     score = audiofunctions.correlate_images(spectrogram, reference)
-    if score >= 0.997:
+    if score >= 0.95:
         print('Audio Test PASS')
         return True
     else:
