@@ -90,6 +90,11 @@ if [ ! $? -eq 0 ]; then
     continue
 fi
 
+echo "Are all leds white? press enter to continue or scan a QR code to start over"
+if [[ -z "$response" ]]; then
+    continue
+fi
+
 echo "Programing serial number \"$serial\" and running tests..."
 test_output="./testresults/${serial}_test.txt"
 (python3 ./test.py ${serial}) &>> ${test_output}
