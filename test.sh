@@ -4,7 +4,7 @@ firmware="firmware.bin"
 
 promptclose() {
 echo "- Properly place PCB in fixture and make sure PCB switch is in \"on\" position."
-echo "- Close fixture and click scanner button to continue."
+echo "- Close fixture and press enter to continue."
 read -p "" response
     while [[ ! -z "$response" ]]
     do
