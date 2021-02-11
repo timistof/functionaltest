@@ -16,7 +16,13 @@ class MidiInputHandler(object):
         message, deltatime = event
         self.received_messages.append(message)
 
+#https://stackoverflow.com/questions/20789412/check-if-all-elements-of-one-array-is-in-another-array
+def is_slice_in_list(s,l):
+    len_s = len(s) #so we don't recompute length of s on every iteration
+    return any(s == l[i:len_s+i] for i in xrange(len(l) - len_s+1))
+
 def midi_test():
+    result = False
     device_name = 'USB MIDI Interface:USB MIDI Interface MIDI 1 20:0'
     sleep_time = 0.01 #one midi message every 10 milliseconds
 
@@ -60,15 +66,24 @@ def midi_test():
     del midiout
         
     if messages == callback.received_messages:
+        result = True
+    else:
+        if len(callback.received_messages) > len(messages):
+            result = is_slice_in_list(message, callback.received_messages)
+        else
+            result = False
+
+    if result = True:
         print("Midi test PASS")
         return True
-    else:
-        print("Midi test FAIL")
-        print("Number of sent messages: " + str(len(messages)) + ", number of received messages: " + str(len(callback.received_messages)))
-        print("Sent messages:")
-        print(messages)
-        print("Received messages:")
-        print(callback.received_messages)
-        return False
+
+    print("Midi test FAIL")
+    print("Number of sent messages: " + str(len(messages)) + ", number of received messages: " + str(len(callback.received_messages)))
+    print("Sent messages:")
+    print(messages)
+    print("Received messages:")
+    print(callback.received_messages)
+    return False
+        
         
 #midi_test()
