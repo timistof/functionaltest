@@ -25,7 +25,7 @@ def playrecord(playfile, recordfile):
         playProcess.join()
         
 def create_spectrogram(audiofile, imagefile):
-    os.system('sox ' + audiofile + ' -n spectrogram -z 90 -o ' + imagefile)
+    os.system('sox ' + audiofile + ' -n spectrogram -z 70 -o ' + imagefile)
 
 def correlate_images(fileA, fileB):
     a = cv2.imread(fileA,0)
